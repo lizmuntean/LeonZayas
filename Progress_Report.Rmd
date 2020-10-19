@@ -1,0 +1,66 @@
+---
+title: "Progress Report v.2"
+author: "Liz Muntean"
+date: "10/19/2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+FAILED:
+
+STUCK: Waiting for lead author to respond with code. 
+
+WORKING ON IT: 
+
+R stuff:
+Using sequences seen at least two or more times, or at times sequences seen over 10 times or excluding archaeal reads (see figure legends for details), heat maps and relationships between the different samples were calculated using the Bray–Curtis and Kulczynski dissimilarity indices with second square root transformed data using the vegan R package at three taxonomic levels: phyla, class and OTU level. 
+
+Multidimensional scaling plots using a Bray–Curtis statistical metric were generated using the vegan R package.
+
+What does the OTU ID 'Epulopsicum" entail in terms of the data?
+
+QIIME stuff:
+Need to learn how to extract DNAseq data from online database from where it is available
+
+For analysis of samples internal to this study, sequences were clustered into operational taxonomic units (OTUs) by 97% sequence identity using UCLUST 
+
+For analyses requiring inclusion of all sequences, sequences were clustered via the closed OTU picking pipeline in QIIME (pick_closed_reference_otus.py) using the default parameters since different primers were used across studies.
+
+Shared (core) microbiome OTUs were calculated based on OTU
+(97% relatedness) presence in 95% of samples, not including the oceanic water samples, using the compute_core_microbiome.py script in QIIME.
+
+
+COMPLETED: 
+
+Converted .xlsx table into .csv file. 
+
+Created a new table to match Habitat and Sample type to the raw sequence ID, similar to Table 1, but condensing and simplifying the information to just what I need. 
+
+installed vegan package
+
+Need to figure out what columns B,G,O,R,Yc,Yf are: they are samples from the Florida keys
+
+emailed corresponding author: Hello Dr. Biddle, I very much enjoyed your recent paper in PeerJ, Microbiomes of fish, sediment and seagrass suggest connectivity of coral reef microbial populations. I am currently a Master's student at Tulane University in Lousiana participating in a Data and Software class for biologists learning how to code and reproduce the results from scientific papers. The figures in your paper are compelling to me and I believe learning how to create them would be very useful for my research. Is there any chance you would be able to share the code you used to make your figures and any more of the data required to do so? I would be beyond grateful. Thank you so much for your time! Sincerely, Liz Muntean
+
+-----
+Progress report 10/12/2020
+FAILED:n/a
+
+STUCK: The authors used QIIME to assign taxonomic classification. As QIIME is out of the scope of this class I will probably have to chose a different figure to replicate, or potentially choose another paper. 
+
+Not sure if I need to ask for the R code from the authors of the new paper I've chosen or if the package would already contain the model.
+
+Tried converting txt data to csv but data does not line up with column headers. Is this something I need to manually fix or is there a way to do it more effficiently?
+
+
+WORKING ON IT: 
+Started looking for alternative papers to replicate: Sex-biased survival contributes to population decline in a long-lived seabird, the Magellanic Penguin, Gownaris and Boersma 2019. https://doi.org/10.1002/eap.1826
+Looking at figure 5 to replicate.
+They used the R package marked to develop their mark-recapture model. 
+
+COMPLETED: Downloaded data and metadata from new paper. Data is in .txt format.

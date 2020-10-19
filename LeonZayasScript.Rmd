@@ -1,0 +1,43 @@
+---
+title: "LeonZayasScript"
+author: "Liz Muntean"
+date: "10//2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+rm(list=ls())
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+
+```
+```{r}
+library('heatmaply')
+library('plotly')
+otu_abun<-read.csv("./data/Table_S1.csv")
+rownames(otu_abun)<-otu_abun[,1]
+p<-heatmaply(otu_abun,
+             dendogram=
+             xlab="Samples", ylab="OTU ID",
+             main="",
+             scale="column",
+             margins=c(60,100,40,20),
+             grid_color="white",
+             titleX=TRUE,
+             hide_colorbar=TRUE,
+             branches_lwd = 0.1,
+             fontsize_row = 5, fontsize_col = 5,
+             heatmap_layers=theme(axis.line=element_blank())
+)
+print(p)
+```
+
+```{r}
+seq_hab<-read.csv("./data/SeqHab.csv")
+seq_hab<-seq_hab %>% select(Raw.Seq.ID,Habitat)%>%pivot_wider(id_cols=Raw.Seq.ID,names_from=Raw.Seq.ID, values_from=Habitat)
+
+print(seq_hab)
+```
+```{r}
+leftjoin(otu_abun,seq_hab,by=)
+```
