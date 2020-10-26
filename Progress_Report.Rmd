@@ -11,6 +11,18 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 
 ```
+Progress Report 10/25/2020
+
+STUCK: Waiting for lead author. She responded on Tuesday asking what figures I was interested and said she would start digging for the code and further data...not sure how hopeful I am that this will happen quickly enough. 
+
+WORKING ON IT: Started working on learning about writing the code for heat maps using the data I currently have access to. Progress can be seen in the LeonZayasScript.RMD file.
+
+COMPLETED: replied again to lead author. email transcripts:
+R Leon Zayas: Tell me a little bit more about which figures you are interested in learning more about and I will go look for the code. Thank you for your interest in our paper!
+Me: Thank you so much for being willing to look for the code! I am hoping to learn about how to create heatmaps and creating matrixes and would love to see how you created Figure 3 from the paper with the Kulczynski dissimilarity. It would also be great to see how you did Figure 1 as well, if possible. I was able to download the table of the shared OTUs across samples from the supplemental information section on the PeerJ page-- would I need any other raw data to recreate the figures fully?
+Thank you again so much! 
+----------
+Progress Report 10/19/2020
 FAILED:
 
 STUCK: Waiting for lead author to respond with code. 
