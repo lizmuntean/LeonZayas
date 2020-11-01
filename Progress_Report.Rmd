@@ -1,7 +1,7 @@
 ---
-title: "Progress Report v.2"
+title: "Progress Report"
 author: "Liz Muntean"
-date: "10/19/2020"
+date: "10/12/2020 to 11/23/2020"
 output:
   pdf_document: default
   html_document: default
@@ -11,6 +11,20 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 
 ```
+Progress Report 11/1/2020
+
+STUCK: Author has still not responded, no further data or code procured. Is sending a reminder email appropriate? 
+
+WORKING ON IT: Want to go over heatmap work-through here: https://jcoliver.github.io/learn-r/006-heatmaps.html
+
+Need to leard more about the Kulczynski dissimilarity, what it means for the data, and how to apply it correctly 
+
+COMPLETED:For figure 3 the data need to be square-root transformed and put through a Kulczynski dissimilarity index
+used this for square root transformation:
+https://rcompanion.org/handbook/I_12.html
+used this for kulczynski:
+https://rdrr.io/cran/vegan/man/vegdist.html
+
 Progress Report 10/25/2020
 
 STUCK: Waiting for lead author. She responded on Tuesday asking what figures I was interested and said she would start digging for the code and further data...not sure how hopeful I am that this will happen quickly enough. 
