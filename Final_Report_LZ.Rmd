@@ -1,0 +1,74 @@
+---
+title: "Leon-Zayas Final Report"
+author: "Liz Muntean"
+date: "11/8/2020"
+output:
+  html_document: default
+  pdf_document: default
+always_allow_html: yes
+bibliography: "Leon-Zayas2020.bib"
+---
+
+```{r setup, include=FALSE}
+rm(list=ls())
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(vegan)
+library('heatmaply')
+library('plotly')
+
+```
+
+## Introduction
+I set out to replicate Figure 3 from the paper "Microbiomes of fish, sediment and seagrass suggest connectivity of coral reef microbial populations", by León-Zayas, McCargar, Drew, and Biddle published in 2020 in PeerJ. A subset of the data was available in .xlsx format in the supplemental materials of the publication consisting of OTU abundances from the various sampling sites found in Table 1 of the paper. The first step I took was to convert the .xlsx data into .csv format. Reading through the methods section of the paper I learned that they used the vegan R package to create heat maps and relationships between the samples that had been square root transformed and Bray-Curtis and Kulczynski dissimilarity indexed. Sequence clustering and OTU taxonomic classification were done therough the QIIME software package. 
+
+In order to recreate Figure 3 the data was missing for the Florida and Ocean waters samples. The catergories of the subphylum were also missing as well as the parameters used to create the heatmaps and the dendrogram. I emailed the corresponding author asking for further data and the code:
+Hello Dr. Biddle, I very much enjoyed your recent paper in PeerJ, Microbiomes of fish, sediment and seagrass suggest connectivity of coral reef microbial populations. I am currently a Master's student at Tulane University in Lousiana participating in a Data and Software class for biologists learning how to code and reproduce the results from scientific papers. The figures in your paper are compelling to me and I believe learning how to create them would be very useful for my research. Is there any chance you would be able to share the code you used to make your figures and any more of the data required to do so? I would be beyond grateful. Thank you so much for your time! Sincerely, Liz Muntean
+Dr. Biddle forwarded the email on to the lead wuthor, from whom I waited another week for a response.
+In the meantime I attempted to learn how to construct a heat map from the data I did have.
+```{r}
+otu_abun<-read.csv("./data/Table_S1.csv")
+rownames(otu_abun)<-otu_abun[,1]
+otumatrix<-as.matrix(otu_abun[,c(2:36)])
+otu_sqrt=sqrt(otumatrix)
+vegdist(otu_sqrt, method="kulczynski", binary=FALSE,diag=FALSE,upper=FALSE,na.rm=FALSE)
+```
+
+
+## Heatmaps
+I learned hot to put the data into a matrix and shift the columns to get the x-axis value of OTU ID that I desired. I applied a Kulczynski dissimilarity index to the data but had no way of knowing if they also applied the Bray-Curtis to the same data at some stage as well. 
+The lead author contacted me with an email saying:
+R Leon Zayas: Tell me a little bit more about which figures you are interested in learning more about and I will go look for the code. Thank you for your interest in our paper!
+And to which I replied:
+Thank you so much for being willing to look for the code! I am hoping to learn about how to create heatmaps and creating matrixes and would love to see how you created Figure 3 from the paper with the Kulczynski dissimilarity. It would also be great to see how you did Figure 1 as well, if possible. I was able to download the table of the shared OTUs across samples from the supplemental information section on the PeerJ page-- would I need any other raw data to recreate the figures fully?
+Thank you again so much! 
+However, she has not responded again with the data and code. While waiting again I learned about the parameters that go into creating a heat map and how to cluster by row, column, how to remove the dendogram from the figure and how to visually alter coloration, scale, and margins of the heat map figure. Finally, I learned how to plot an html widget into a knitted document so that it would display the widget and not just the code, using the ggplotly command and then calling 'p' instead of print(p).
+
+
+```{r}
+p<-heatmaply(normalize(otu_sqrt),
+             dendogram=c("row","column"),
+             show_dendrogram = c(FALSE,TRUE),
+             xlab="Samples", ylab="OTU ID",
+             main="",
+             scale="column",
+             margins=c(60,100,40,20),
+             grid_color="white",
+             titleX=TRUE,
+             hide_colorbar=TRUE,
+             branches_lwd = 0.1,
+             fontsize_row = 5, fontsize_col = 5,
+             heatmap_layers=theme(axis.line=element_blank())
+)
+p<-ggplotly(p)
+p
+```
+The heatmap above shows the available data from the sample sites seen on the y-axis and the abundance of different OTU sample IDs on the x-axis with square root transformed data. The dendrogram at the top of the figure is clustering by data rows. 
+
+## Conclusion
+
+Overall, I did not find this paper to be very replicable. It would take a considerable knowledge of coding in R and using QIIME in order to get the results along with a lot of guesswork over whether or not the data was normalized, when and how the dissimilarity indexes were applied, etc. 
+
+## Bibliography
+
+León-Zayas R, McCargar M, Drew JA, Biddle JF. 2020. Microbiomes of fish, sediment and seagrass suggest connectivity of coral reef microbial populations. PeerJ 8:e10026 https://doi.org/10.7717/peerj.10026

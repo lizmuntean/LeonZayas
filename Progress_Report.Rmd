@@ -24,7 +24,7 @@ used this for square root transformation:
 https://rcompanion.org/handbook/I_12.html
 used this for kulczynski:
 https://rdrr.io/cran/vegan/man/vegdist.html
-
+-------
 Progress Report 10/25/2020
 
 STUCK: Waiting for lead author. She responded on Tuesday asking what figures I was interested and said she would start digging for the code and further data...not sure how hopeful I am that this will happen quickly enough. 
