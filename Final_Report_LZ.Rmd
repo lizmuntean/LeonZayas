@@ -72,7 +72,7 @@ The heatmap above shows the available data from the sample sites seen on the y-a
 
 ## Conclusion
 
-Overall, I did not find this paper to be very replicable. It would take a considerable knowledge of coding in R and using QIIME in order to get the results along with a lot of guesswork over whether or not the data was normalized, when and how the dissimilarity indexes were applied, etc. 
+Overall, I did not find this paper to be very replicable. It would take a considerable knowledge of coding in R and using QIIME in order to get the results along with a lot of guesswork over whether or not the data was normalized, when and how the dissimilarity indexes were applied, etc. The lack of answer from the author was, of course, a barrier to replication. In order for this paper and the specific figure to be replicated the authors need to make not only their code available, but the complete data collected and used, not just the subset available in the supplemental materials, as well as the metadata connecting different variables associated in different ways in all of their figures. 
 
 ## Bibliography
 
